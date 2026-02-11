@@ -1,3 +1,5 @@
+import os
+
 # Ex 2-1
 symbols = '$¢£¥€¤'
 codes = []
@@ -64,6 +66,7 @@ for passport in sorted(traveler_ids):
 for country, _ in traveler_ids:
     print(country)
 
+# Tuples as Immutable Lists
 a = (10, 'alpha', [1, 2])
 b = (10, 'alpha', [1, 2])
 print(a == b)
@@ -86,7 +89,68 @@ print(fixed(tf))
 print(fixed(tm))
 
 
+# Unpacking sequences and iterables
+
 # Ex 2-8        Unpacking sequences and iterables
 latitude, longitude = lax_coordinates       # unpacking
 print(latitude)
 print(longitude)
+
+
+print(divmod(20, 8))
+t = (20, 8)
+print(divmod(*t))
+
+quotient, remainder = divmod(*t)
+print(quotient, remainder)
+
+_, filename = os.path.split("~/.ssh/id_rsa.pub")
+print(filename)
+
+
+# Using * to grab excess items
+a, b, *rest = range(5)
+print(a, b, rest)
+
+a, b, *rest = range(3)
+print(a, b, rest)
+
+a, b, *rest = range(2)
+print(a, b, rest)
+
+a, *body, c, d = range(5)
+print(a, body, c, d)
+
+*head, b, c, d = range(5)
+print(head, b, c, d)
+
+
+# Unpacking with * in function calls and sequence literals
+def fun(a, b, c, d, *rest):
+    return a, b, c, d, rest
+
+print(fun(*[1, 2], 3, *range(4, 7)))
+
+print((*range(4), 4))
+print([*range(4), 4])
+print({*range(4), 4, *(5, 6, 7)})
+
+
+# Nested unpacking
+# Ex 2-8        Unpacking nested tuples to access the longitude
+# metro_lat_lon.py
+
+
+# Pattern Matching with Sequences
+# Ex 2-9        Method from an imaginary Robot class
+
+
+# Ex 2-10       Destructuring nested tuples
+# match_lat_lon.py
+
+# Pattern Matching Sequences in an Interpreter
+# Ex 2-11       Matching patterns without match/case
+# py39_lis.py
+
+# Ex 2-12       Pattern matching with match
+# py310_lis.py
